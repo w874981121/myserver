@@ -1,7 +1,10 @@
+/**
+ * Created by wangyanqi on 2017/8/11.
+ */
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET  */
 router.get('/index', function(req, res, next) {
   res.render('index', { title: 'Express' });
   let data = {}
