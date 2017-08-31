@@ -10,3 +10,16 @@
  */
 
 'use strict';
+
+import mongoose from 'mongoose'
+
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+	user_name:String,
+	id:String,
+	password:String,
+	state:String
+})
+
+

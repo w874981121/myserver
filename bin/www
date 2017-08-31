@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
+
 require('babel-core/register');
 var app = require('../app');
 var debug = require('debug')('myserver:server');

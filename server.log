@@ -1,0 +1,94 @@
+----- GET /index 304 4.642 ms
+----- GET /favicon.ico 304 0.455 ms
+----- GET //index 200 0.592 ms
+----- GET /favicon.ico 304 0.262 ms
+----- GET //index 304 0.564 ms
+----- GET /favicon.ico 304 0.415 ms
+----- GET //index 304 0.327 ms
+----- GET /favicon.ico 304 0.462 ms
+----- GET //index 304 0.426 ms
+----- GET /favicon.ico 304 0.318 ms
+----- GET //index 304 0.208 ms
+----- GET /favicon.ico 304 0.207 ms
+----- GET //index 304 0.887 ms
+----- GET /favicon.ico 304 0.204 ms
+----- GET //index 304 0.215 ms
+----- GET /favicon.ico 304 0.207 ms
+----- GET //index 304 0.201 ms
+----- GET /favicon.ico 304 0.198 ms
+----- GET //index 304 0.210 ms
+----- GET /favicon.ico 304 0.213 ms
+----- GET //index 304 0.202 ms
+----- GET /favicon.ico 304 0.526 ms
+----- GET /index 304 0.278 ms
+----- GET /favicon.ico 304 0.207 ms
+----- GET /index 304 1.139 ms
+----- GET /favicon.ico 304 0.209 ms
+----- GET /index 304 0.222 ms
+----- GET /favicon.ico 304 0.214 ms
+----- GET /index 304 4.053 ms
+----- GET /favicon.ico 304 0.452 ms
+::1 - - [31/Aug/2017:07:12:01 +0000] "GET /index/ HTTP/1.1" 500 2 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"
+::1 - - [31/Aug/2017:07:12:01 +0000] "GET /favicon.ico HTTP/1.1" 304 - "http://localhost:3000/index/" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"
+----- GET /index/ 500 6.169 ms
+----- GET /favicon.ico 304 0.456 ms
+----- GET /index/ 500 0.552 ms
+----- GET /favicon.ico 304 0.321 ms
+----- GET /index/ 500 0.395 ms
+----- GET /favicon.ico 304 0.211 ms
+----- GET /index/ 500 0.357 ms
+----- GET /favicon.ico 304 0.206 ms
+----- GET /index/ 500 0.389 ms
+----- GET /favicon.ico 304 0.223 ms
+----- GET /index/ 500 0.452 ms
+----- GET /favicon.ico 304 0.219 ms
+----- GET /index/ 500 1.479 ms
+----- GET /favicon.ico 304 0.568 ms
+----- GET /index/ 500 0.508 ms
+----- GET /favicon.ico 304 0.254 ms
+----- GET /index/ 500 0.320 ms
+----- GET /favicon.ico 304 0.205 ms
+----- GET /index/ 500 0.399 ms
+----- GET /favicon.ico 304 0.209 ms
+----- GET /index/ 500 0.343 ms
+----- GET /favicon.ico 304 0.361 ms
+----- GET /index/ 500 0.923 ms
+----- GET /favicon.ico 304 0.304 ms
+----- GET /index/ 500 0.583 ms
+----- GET /favicon.ico 304 0.406 ms
+----- GET /index/index 500 6.295 ms
+----- GET /favicon.ico 304 0.804 ms
+----- GET /index/index 500 5.910 ms
+----- GET /favicon.ico 304 0.470 ms
+----- GET /index/index 500 0.677 ms
+----- GET /favicon.ico 304 0.204 ms
+-----[31/Aug/2017:07:22:40 +0000] GET /index/index 500 6.454 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:22:40 +0000] GET /favicon.ico 304 0.472 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:24:36 +0000] GET /index/index 500 11.406 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:24:36 +0000] GET /favicon.ico 304 2.019 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:24:36 +0000] GET /index/index 500 1.695 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:24:36 +0000] GET /favicon.ico 304 0.348 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:24:36 +0000] GET /index/index 500 0.710 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:24:36 +0000] GET /favicon.ico 304 0.242 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:26:06 +0000] GET /index/index 200 3.418 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:26:06 +0000] GET /favicon.ico 304 0.683 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:26:07 +0000] GET /index/index 304 0.367 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:26:07 +0000] GET /favicon.ico 304 0.189 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:26:08 +0000] GET /index/index 304 0.309 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:07:26:08 +0000] GET /favicon.ico 304 0.330 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:53:40 +0000] GET /index/index 304 0.241 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:53:40 +0000] GET /favicon.ico 304 0.201 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:53:45 +0000] GET /index/index/dd 200 0.237 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:53:45 +0000] GET /favicon.ico 304 0.190 ms http://localhost:3000/index/index/dd Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:53:57 +0000] GET /index/index/dd 404 5.134 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:53:58 +0000] GET /favicon.ico 404 0.514 ms http://localhost:3000/index/index/dd Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:05 +0000] GET /index/index/ 500 1.648 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:05 +0000] GET /favicon.ico 404 0.526 ms http://localhost:3000/index/index/ Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:13 +0000] GET /index/index 500 0.747 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:13 +0000] GET /favicon.ico 404 0.406 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:15 +0000] GET /index/index 500 0.719 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:15 +0000] GET /favicon.ico 404 0.278 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:17 +0000] GET /index/index 500 0.380 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:08:54:17 +0000] GET /favicon.ico 404 0.254 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:09:17:44 +0000] GET /index/index 200 10.074 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[31/Aug/2017:09:17:44 +0000] GET /favicon.ico 404 1.462 ms http://localhost:3000/index/index Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
