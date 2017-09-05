@@ -5,7 +5,7 @@
 import mongoose from 'mongoose';
 import config from 'config-lite';
 
-mongoose.connect('mongodb://localhost:27017/cms', {server:{auto_reconnect:true}});
+mongoose.connect(config.url, {server:{auto_reconnect:true}});
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;

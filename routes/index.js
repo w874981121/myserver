@@ -3,15 +3,12 @@
  */
 
 'use strict';
-var express = require('express');
-var router = express.Router();
+import users from './admin'
 
-/* GET  */
-router.get('/index', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-  let data = {}
-      data.text = '啥玩意'
-  res.send(JSON.stringify(data));
-});
+export default app => {
+	// app.get('/', (req, res, next) => {
+	// 	res.redirect('/');
+	// });
+	app.use('/users', users);
 
-module.exports = router;
+}

@@ -3,28 +3,26 @@
  */
 'use strict';
 import express from 'express';
+import db from './mongodb/db.js';
 import cookieParser from 'cookie-parser';
 //请求体解析中间件
 import bodyParser from 'body-parser';
-//文件处理
 import fs from 'fs';
-//日志中间件
-import logger from 'morgan';
+import logger from 'morgan';//日志中间件
 //
-import index from './routes/index';
-import users from './routes/users';
+import router from './routes/index';
 
+//创建打印log文件
 const accessLogStream = fs.createWriteStream(__dirname + '/server.log', {
 	flags: 'a'
 })
 
 const app = express();
-//app.use(logger('dev'));
-//app.use(logger('combined', {stream: accessLogStream}))
-//:remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"
+//模块日志参数设置参考地址  https://www.npmjs.com/package/morgan
 app.use(logger('-----[:date[clf]] :method :url :status :response-time ms :referrer :user-agent', {
 	stream: accessLogStream
 }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
@@ -45,9 +43,8 @@ app.all('*', (req, res, next) => {
 		next();
 	}
 });
-
-app.use('/index', index);
-app.use('/users', users);
+//路由导入
+router(app)
 
 //  捕获404并转发到错误处理程序 
 app.use((req, res, next) => {

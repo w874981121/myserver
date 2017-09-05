@@ -3,13 +3,13 @@
  */
 
 'use strict';
-var express = require('express');
-var router = express.Router();
+import express from 'express'
+const router = express.Router();
 
 /* GET */
-router.get('/', function(req, res, next) {
+router.get('/user',(req, res, next) => {
   res.send('respond with a resource');
   console.log('啥玩意，users')
 });
 
-module.exports = router;
+export default router;
