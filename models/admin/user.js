@@ -22,4 +22,4 @@ const userSchema = new Schema({
 	state:String
 })
 
-
+const user_model = mongoose.model('Hongbao', userSchema);

@@ -24,3 +24,4 @@ const roleSchema = new Schema({
 	jurisdiction:[],
 	state:Boolean
 })
+const role_model = mongoose.model('Hongbao', roleSchema);

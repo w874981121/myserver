@@ -22,3 +22,4 @@ const jurisdictionSchema = new Schema({
 	jurisdiction:String,
 	state:String
 })
+const jurisdiction_model = mongoose.model('Hongbao', jurisdictionSchema);
