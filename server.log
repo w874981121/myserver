@@ -97,3 +97,5 @@
 -----[05/Sep/2017:02:57:59 +0000] GET / 404 5.628 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
 -----[05/Sep/2017:02:57:59 +0000] GET /favicon.ico 404 0.918 ms http://localhost:3000/ Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
 -----[05/Sep/2017:02:58:15 +0000] GET /users/user 200 4.495 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[06/Sep/2017:18:26:00 +0000] GET /users/user 200 83.853 ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[06/Sep/2017:18:26:00 +0000] GET /favicon.ico 404 0.670 ms http://localhost:3000/users/user Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36

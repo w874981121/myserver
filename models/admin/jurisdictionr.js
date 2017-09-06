@@ -8,18 +8,18 @@
  * 
  * jurisdiction_name: 名称
  * jurisdiction: 功能名称
- * 
+ * state: 状态
  */
 
 'use strict';
 
 import mongoose from 'mongoose'
 
-const Schema = mongoose.Schema;
-
-const jurisdictionSchema = new Schema({
+const jurisdictionSchema = new mongoose.Schema({
 	jurisdiction_name:String,
 	jurisdiction:String,
 	state:String
 })
 const jurisdiction_model = mongoose.model('Hongbao', jurisdictionSchema);
+
+export default jurisdiction_model
