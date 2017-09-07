@@ -6,6 +6,15 @@
 'use strict';
 import user from '../models/admin/user'
 
+class Admin {
+	constructor(){
+		this.user = this.user.bind(this)
+	}
+	async user(){
+		
+	}
+}
+
 let users = new user({
     user_name: 'wangyq',
     password: 11428020,
