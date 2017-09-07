@@ -99,3 +99,9 @@
 -----[05/Sep/2017:02:58:15 +0000] GET /users/user 200 4.495 ms - Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
 -----[06/Sep/2017:18:26:00 +0000] GET /users/user 200 83.853 ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
 -----[06/Sep/2017:18:26:00 +0000] GET /favicon.ico 404 0.670 ms http://localhost:3000/users/user Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[07/Sep/2017:17:27:05 +0000] GET /users/user 200 60.195 ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[07/Sep/2017:17:40:55 +0000] GET /admin/role - - ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[07/Sep/2017:17:40:55 +0000] GET /users/user 404 1.178 ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[07/Sep/2017:17:41:31 +0000] GET /admin/role - - ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[07/Sep/2017:17:41:31 +0000] GET /users/user 404 0.349 ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+-----[07/Sep/2017:17:43:26 +0000] GET /admin/role 200 29.251 ms - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
