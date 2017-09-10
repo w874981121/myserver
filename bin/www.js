@@ -1,18 +1,19 @@
-#!/usr/bin/env node
+// #!/usr/bin/env node
 
 
 require('babel-core/register');
 var app = require('../app');
 var debug = require('debug')('myserver:server');
 var http = require('http');
+var config = require('config-lite');
+
 
 /*
  * 从环境中获取端口并快速存储。
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
-
 
 /**
  * Create HTTP server.

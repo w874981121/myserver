@@ -21,7 +21,7 @@ const roleSchema = new mongoose.Schema({
 	role_name:String,
 	jurisdiction:[],
 	state:Boolean
-})
+});
 const role_model = mongoose.model('Hongbao', roleSchema);
 
 export default role_model

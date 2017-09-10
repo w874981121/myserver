@@ -10,7 +10,7 @@
  * password: 密码
  * phone: 手机号
  * state: 状态
- * status: 身份(0-超级管理员-唯一账户；1-普通管理员；)
+ * status: 身份(0-超级管理员-唯一账户；1-普通管理员；2-普通用户)
  * role_name: 管理员的角色名称
  * role_id: 角色_id
  *
@@ -39,18 +39,16 @@ const userSchema = new mongoose.Schema({
 			default: Date.now()
 		},
 	}
-})
+});
 // 检测并修改存入数据时间 (在执行sava之前执行callback,pre 一个钩子函数)
 userSchema.pre('save', function (next) {
-	console.log(this,'这里是this')
-	console.log(this.isNew,'这里是this.isNew')
 	if (this.isNew) {
 		this.time.createAt = this.time.updateAt = Date.now()
 	} else {
 		this.time.updateAt = Date.now()
 	}
 	next();
-})
+});
 
 
 const user = mongoose.model('user', userSchema);

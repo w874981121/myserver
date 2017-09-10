@@ -47,7 +47,7 @@ import router from './routes/index';
 //创建打印log文件
 const accessLogStream = fs.createWriteStream(__dirname + '/server.log', {
 	flags: 'a'
-})
+});
 
 const app = express();
 //模块日志参数设置参考地址  https://www.npmjs.com/package/morgan
@@ -66,9 +66,9 @@ app.all('*', (req, res, next) => {
 	res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 	res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
 	res.header("Access-Control-Allow-Credentials", true); //可以带cookies
-	res.header("X-Powered-By", '3.2.1')
+	res.header("X-Powered-By", '3.2.1');
 	res.header("Content-Type", "application/json;charset=utf-8");
-	console.log(req.method)
+	console.log(req.method);
 	if(req.method == 'OPTIONS') {
 		res.send(200);
 	} else {
@@ -76,7 +76,7 @@ app.all('*', (req, res, next) => {
 	}
 });
 //路由导入
-router(app)
+router(app);
 
 //  捕获404并转发到错误处理程序 
 app.use((req, res, next) => {

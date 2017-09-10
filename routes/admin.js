@@ -5,14 +5,15 @@
 'use strict';
 import express from 'express'
 
-import admin from '../controller/admin'
+import User from '../controller/admin/user'
+import Role from '../controller/admin/role'
 
 const router = express.Router();
 
 /* GET */
-router.get('/user', admin.user);
+router.get('/user', User.register);
 
-router.get('/role', admin.role);
+router.get('/role', Role.createoles);
 
 // router.get('/jurisdictionr', admin.jurisdictionr);
 
