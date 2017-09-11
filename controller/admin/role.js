@@ -8,11 +8,11 @@
 import role from '../../models/admin/role'
 
 class Role {
-    constructor() {
+    constructor() {}
 
-    }
+    //============== 超级管理员权限创建管理员角色 ==============
 
-    async createoles(req, res, next) {
+    async createRoles(req, res, next) {
         let roles = new role({
             role_name: '审核员',
             jurisdiction: ['admin', 'role', 'jurisdiction'],

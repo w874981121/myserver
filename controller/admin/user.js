@@ -20,25 +20,31 @@ class User {
 	userNnameV(req, res, next) {
 		try {
 			if(!req.query.user_name) {
-				throw new Error('用户名参数错误')
+				throw new Error('用户名参数缺失或错误')
 			}
 		} catch(err) {
 			res.send({
-				type: 'GET_ERROR_PARAM',
-				message: err.message,
+                state: false,
+				message: err.message
 			})
 			return
-		}
-		user.findByName(req.query.user_name, (err, str) => {
-			let data = {}
-			console.log(str)
+		};
+		user.findOne({'user_name':req.query.user_name}, (err, str) => {
+			let data = {};
 			if(!err && str) {
-				data['state'] = true
-				data['message'] = '账户已存在'
+				data.state = false;
+				data.message = '账户已存在';
 				res.send(JSON.stringify(data))
-			} else {
-				data['state'] = false
-				data.message = '账户未注册'
+			}
+			if(err){
+				data.state = false;
+				data.err = err;
+				data.message = '数据库存储错误';
+				res.send(JSON.stringify(data))
+			}
+			if(!str){
+				data.state = false;
+				data.message = '账户未注册';
 				if(req.query.password) {
 					next()
 				} else {
@@ -48,7 +54,7 @@ class User {
 
 		})
 	}
-	//检测通过，且存在密码字段则写入数据库
+	//检测通过，存在密码字段则写入数据库
 	async register(req, res, next) {
 		let doc, data = {};
 		try {
@@ -57,25 +63,31 @@ class User {
 			}
 		} catch(err) {
 			res.send({
-				type: 'GET_ERROR_PARAM',
-				message: err.message,
-			})
+                state: false,
+				message: err.message
+			});
 			return
 		}
 
 		doc = {
 			user_name: req.query.user_name,
-			password: req.query.password,
+			password: re(req.query.password),
 			state: true,
 			status: 2, //注册默认为2（普通用户），需超级管理员修改身份
 		};
 		await new user(doc).save().then((str) => {
-			console.log('注册成功')
-			data.data = str;
-			data['message'] = '注册成功'
+			if(str){
+				data.state = true;
+				data.message = '注册成功'
+			}else{
+				data.state = false;
+				data.message = '注册失败'
+			}
+
 		}).catch((err) => {
-			console.log('注册失败')
+			data.err = err
 			data.type = 'FAIL';
+            data.state = false;
 			data.message = '注册失败'
 		});
 		res.send(JSON.stringify(data));
@@ -93,29 +105,36 @@ class User {
 			}
 		} catch(err) {
 			res.send({
-				type: 'GET_ERROR_PARAM',
 				message: err.message,
-			})
+				type: 'GET_ERROR_PARAM'
+			});
 			return
 		}
-		await user.findByName(req.query.user_name, (err, str) => {
+		await user.findOne({"user_name":req.query.user_name}, (err, str) => {
 			if(!err && str) {
-				if(req.query.password == str.password) {
-					data.data={}
-					data.data.user_name = str.user_name
-					data.data.state = str.state
-					data.data.status = str.status
+				if(re(req.query.password) === str.password) {
+					data.data={};
+					data.data.user_name = str.user_name;
+					data.data.state = str.state;
+					data.data.status = str.status;
+                    data.state = true;   //登陆状态吗
 					data.message = "登录成功"
 				} else {
-					data.data = err
+					data.data = err;
+                    data.state = false;
 					data.message = "密码错误"
 				}
-			}
+			}else{
+			    data.state = false;
+                data.message = "账号不存在"
+            }
 			res.send(JSON.stringify(data));
 		})
 	}
 
 	//============== 用户修改密码 ==============
+
+
 
 	//============== 用户忘记密码找回 ==============
 

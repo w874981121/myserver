@@ -6,7 +6,7 @@
 import express from 'express'
 
 import User from '../controller/admin/user'
-import Role from '../controller/admin/role'
+import Jurisdiction from '../controller/admin/jurisdiction'
 
 const router = express.Router();
 
@@ -17,6 +17,11 @@ router.get('/user', User.register);
 //登录
 router.get('/login', User.login);
 
-// router.get('/jurisdictionr', admin.jurisdictionr);
+//权限列表添加
+router.get('/addjurisdiction', Jurisdiction.add);
+//返回所有权限列表数据
+router.get('/returnlist', Jurisdiction.returnList);
+
+
 
 export default router;
