@@ -17,7 +17,7 @@ class User {
 	//============== 普通用户创建-注册 ==============
 
 	//账户检测是否存在
-	async userNnameV(req, res, next) {
+	userNnameV(req, res, next) {
 		try {
 			if(!req.query.user_name) {
 				throw new Error('用户名参数错误')
@@ -41,16 +41,16 @@ class User {
 				data.message = '账户未注册'
 				if(req.query.password) {
 					next()
-				}else{
+				} else {
 					res.send(JSON.stringify(data))
 				}
 			}
-			
+
 		})
 	}
 	//检测通过，且存在密码字段则写入数据库
 	async register(req, res, next) {
-		let doc, users, data = {};
+		let doc, data = {};
 		try {
 			if(!req.query.password) {
 				throw new Error('密码参数错误')
@@ -83,35 +83,41 @@ class User {
 
 	//============== 用户登陆 ==============
 
-	async role(req, res, next) {
-		let roles = new role({
-			role_name: '审核员',
-			jurisdiction: ['admin', 'role', 'jurisdiction'],
-			state: true
-		});
-		await roles.save((err, red) => {
-			console.log(err, "err");
-			console.log(red, "red");
-			res.send('走到了这里了么`````');
+	async login(req, res, next) {
+		let doc, data = {};
+		try {
+			if(!req.query.password) {
+				throw new Error('密码参数错误')
+			} else if(!req.query.user_name) {
+				throw new Error('用户名参数错误')
+			}
+		} catch(err) {
+			res.send({
+				type: 'GET_ERROR_PARAM',
+				message: err.message,
+			})
+			return
+		}
+		await user.findByName(req.query.user_name, (err, str) => {
+			if(!err && str) {
+				if(req.query.password == str.password) {
+					data.data={}
+					data.data.user_name = str.user_name
+					data.data.state = str.state
+					data.data.status = str.status
+					data.message = "登录成功"
+				} else {
+					data.data = err
+					data.message = "密码错误"
+				}
+			}
+			res.send(JSON.stringify(data));
 		})
 	}
 
 	//============== 用户修改密码 ==============
 
 	//============== 用户忘记密码找回 ==============
-
-	async role(req, res, next) {
-		let roles = new role({
-			role_name: '审核员',
-			jurisdiction: ['admin', 'role', 'jurisdiction'],
-			state: true
-		});
-		await roles.save((err, red) => {
-			console.log(err, "err");
-			console.log(red, "red");
-			res.send('走到了这里了么`````');
-		})
-	}
 
 }
 

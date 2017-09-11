@@ -11,12 +11,11 @@ import Role from '../controller/admin/role'
 const router = express.Router();
 
 /* GET */
-
+//注册
 router.get('/user', User.userNnameV);
-
 router.get('/user', User.register);
-
-router.get('/role', Role.createoles);
+//登录
+router.get('/login', User.login);
 
 // router.get('/jurisdictionr', admin.jurisdictionr);
 

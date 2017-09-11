@@ -51,14 +51,14 @@ userSchema.pre('save', function(next) {
 });
 //
 userSchema.statics = {
-	async findByName(user_name,cb) {
-		return await this.findOne({
+	findByName(user_name,cb) {
+		return  this.findOne({
 			'user_name': user_name
 		}).exec(cb)
 	},
 	
-	async findById(_id, cb) {
-		return await this.findOne({
+	findById(_id, cb) {
+		return this.findOne({
 			'_id': _id
 		}).exec(cb)
 	}
