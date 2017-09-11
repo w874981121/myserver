@@ -11,6 +11,9 @@ import Role from '../controller/admin/role'
 const router = express.Router();
 
 /* GET */
+
+router.get('/user', User.userNnameV);
+
 router.get('/user', User.register);
 
 router.get('/role', Role.createoles);

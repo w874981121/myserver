@@ -22,13 +22,13 @@
 import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
-	user_name:String,
-	password:String,
-	phone:String,
-	state:String,
-	status:Number,
-	role_name:String,
-	role_id:Number,
+	user_name: String,
+	password: String,
+	phone: String,
+	state: String,
+	status: Number,
+	role_name: String,
+	role_id: Number,
 	time: {
 		createAt: {
 			type: Date,
@@ -41,15 +41,28 @@ const userSchema = new mongoose.Schema({
 	}
 });
 // 检测并修改存入数据时间 (在执行sava之前执行callback,pre 一个钩子函数)
-userSchema.pre('save', function (next) {
-	if (this.isNew) {
+userSchema.pre('save', function(next) {
+	if(this.isNew) {
 		this.time.createAt = this.time.updateAt = Date.now()
 	} else {
 		this.time.updateAt = Date.now()
 	}
 	next();
 });
-
+//
+userSchema.statics = {
+	async findByName(user_name,cb) {
+		return await this.findOne({
+			'user_name': user_name
+		}).exec(cb)
+	},
+	
+	async findById(_id, cb) {
+		return await this.findOne({
+			'_id': _id
+		}).exec(cb)
+	}
+}
 
 const user = mongoose.model('user', userSchema);
 
