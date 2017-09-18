@@ -25,5 +25,6 @@ router.get('/removeJurisdiction', Jurisdiction.remove);
 
 //============
 router.get('/addrole', Role.createRoles);    //超级管理员，添加角色
+router.get('/addrole', Role.updata);    //超级管理员，修改角色的权限
 
 export default router;

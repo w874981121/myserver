@@ -14,22 +14,13 @@ class Role {
 
 	async createRoles(req, res, next) {
 		let doc, data = {};
-		try {
-			doc = {
-				role_name: req.query.role_name,
-				jurisdiction: req.query.jurisdiction,
-				state: true
-			}
-		} catch(err) {
-			data.err = err
-			data.state = false
-			data.message = "参数异常或缺失"
-			res.send(JSON.stringify(data));
-			return
+		doc = {
+			role_name: req.query.role_name,
+			jurisdiction: req.query.jurisdiction,
+			state: true
 		}
-
 		await new role(doc).save().then((str) => {
-			if(str) {
+			if(str.length > 0) {
 				data.state = true
 				data.message = "添加成功"
 			} else {
@@ -43,10 +34,53 @@ class Role {
 		})
 		res.send(JSON.stringify(data));
 	}
-	
+
 	//============== 超级管理员,修改角色权限 ==============
-	
+
+	async updata(req, res, next) {
+		let data = {};
+		if(typeof req.query.jurisdiction !== "Array") return;
+		await role.updata({
+			"jurisdiction": req.query.jurisdiction
+		}).then((str) => {
+			if(str.length > 0) {
+				data.state = true
+				data.message = "修改成功"
+			} else {
+				data.state = false
+				data.message = "修改失败"
+			}
+		}).catch((err) => {
+            data.err = err
+			data.state = false
+			data.message = "数据库修改错误"
+		})
+		res.send(JSON.stringify(data));
+	}
+
 	//============== 超级管理员,删除角色 ==============
+	
+	async remove(req, res, next) {
+		await jurisdiction.remove({
+			"role_name": req.query.role_name
+		}).then(err, str) => {
+			let data = {}
+			if(str.length > 0) {
+				data.data = str
+				data.state = true
+				data.message = "注销成功"
+			} else {
+				data.state = false
+				data.message = "注销失败"
+			}
+
+		}).catch((err) => {
+		data.err = err
+		data.state = false
+		data.message = "失败"
+	});
+	res.send(JSON.stringify(data));
+	}
 }
 
 export default new Role()

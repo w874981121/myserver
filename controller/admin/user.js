@@ -93,20 +93,7 @@ class User {
 	//============== 用户登陆 ==============
 
 	async login(req, res, next) {
-		let doc, data = {};
-		try {
-			if(!req.query.password) {
-				throw new Error('密码参数错误')
-			} else if(!req.query.user_name) {
-				throw new Error('用户名参数错误')
-			}
-		} catch(err) {
-			res.send({
-				message: err.message,
-				type: 'GET_ERROR_PARAM'
-			});
-			return
-		}
+		let data = {};
 		await user.findOne({"user_name":req.query.user_name}, (err, str) => {
 			if(!err && str) {
 				if(re(req.query.password) === str.password) {
@@ -150,7 +137,7 @@ class User {
 		res.send(JSON.stringify(data))
 	}
 	
-	//============== 超级管理，修改或添加管理角色 ==============
+	//============== 超级管理，修改管理角色 ==============
 
 	//============== 超级管理，修改账户状态 ==============
 	

@@ -30,7 +30,7 @@ class JurisdictionList {
 		await jurisdiction.findOne({
 			"jurisdiction_name": req.query.jurisdiction_name
 		}, (err, str) => {
-			if(str) {
+			if(str.length > 0) {
 				res.send({
 					state: false,
 					message: "名称已存在"
@@ -41,20 +41,21 @@ class JurisdictionList {
 		await jurisdiction.findOne({
 			"jurisdiction": req.query.jurisdiction
 		}, (err, str) => {
-			if(str) {
+			if(str.length > 0) {
 				res.send({
 					state: false,
 					message: "权限字段已存在"
 				})
 			}
 		})
+
 		doc = {
 			jurisdiction_name: req.query.jurisdiction_name,
 			jurisdiction: req.query.jurisdiction,
 			state: true
 		}
 		await new jurisdiction(doc).save().then((str) => {
-			if(str) {
+			if(str.length > 0) {
 				data.state = true
 				data.message = "添加成功"
 			} else {
@@ -73,24 +74,21 @@ class JurisdictionList {
 	//============== 返回所有权限列表 ==============
 
 	async returnList(req, res, next) {
-		await jurisdiction.find((err, str) => {
-			let data = {}
-			if(!err) {
-				if(str.length > 0) {
-					data.data = str
-					data.state = true
-					data.message = "成功"
-				} else {
-					data.state = false
-					data.message = "数据为空或失败"
-				}
+		await jurisdiction.find().then((str) => {
+			if(str.length > 0) {
+				data.data = str
+				data.state = true
+				data.message = "成功"
 			} else {
-				data.err = err
 				data.state = false
-				data.message = "失败"
+				data.message = "数据为空或失败"
 			}
-			res.send(JSON.stringify(data))
+		}).catch((err) => {
+			data.err = err
+			data.state = false
+			data.message = "查询失败"
 		})
+		res.send(JSON.stringify(data))
 	}
 
 	//============== 修改权限功能状态，仅超级管理员可控 ==============
@@ -100,24 +98,22 @@ class JurisdictionList {
 			"jurisdiction_name": req.query.jurisdiction_name
 		}, {
 			"jurisdiction": req.query.jurisdiction
-		}, (err, str) => {
+		}).then((str) => {
 			let data = {}
-			if(!err) {
-				if(str.length > 0) {
-					data.data = str
-					data.state = true
-					data.message = "修改成功"
-				} else {
-					data.state = false
-					data.message = "修改失败"
-				}
+			if(str.length > 0) {
+				data.data = str
+				data.state = true
+				data.message = "修改成功"
 			} else {
-				data.err = err
 				data.state = false
-				data.message = "失败"
+				data.message = "修改失败"
 			}
-			res.send(JSON.stringify(data))
+		}).catch((err) => {
+			data.err = err
+			data.state = false
+			data.message = "修改失败"
 		})
+		res.send(JSON.stringify(data))
 	}
 
 	//============== 注销权限功能，仅超级管理员可控 ==============
@@ -125,26 +121,25 @@ class JurisdictionList {
 	async remove(req, res, next) {
 		await jurisdiction.remove({
 			"jurisdiction_name": req.query.jurisdiction_name
-		}, (err, str) => {
+		}).then(err, str) => {
 			let data = {}
-			if(!err) {
-				if(str.length > 0) {
-					data.data = str
-					data.state = true
-					data.message = "注销成功"
-				} else {
-					data.state = false
-					data.message = "注销失败"
-				}
+			if(str.length > 0) {
+				data.data = str
+				data.state = true
+				data.message = "注销成功"
 			} else {
-				data.err = err
 				data.state = false
-				data.message = "失败"
+				data.message = "注销失败"
 			}
-			res.send(JSON.stringify(data))
-		})
-	}
 
+		}).catch((err) => {
+		data.err = err
+		data.state = false
+		data.message = "失败"
+	});
+	res.send(JSON.stringify(data));
+
+}
 }
 
 export default new JurisdictionList()
