@@ -35,14 +35,12 @@ class User {
 				data.state = false;
 				data.message = '账户已存在';
 				res.send(JSON.stringify(data))
-			}
-			if(err){
+			}else if(err){
 				data.state = false;
 				data.err = err;
 				data.message = '数据库存储错误';
 				res.send(JSON.stringify(data))
-			}
-			if(!str){
+			}else if(!str){
 				data.state = false;
 				data.message = '账户未注册';
 				if(req.query.password) {
@@ -72,8 +70,8 @@ class User {
 		doc = {
 			user_name: req.query.user_name,
 			password: re(req.query.password),
-			state: true,
-			status: 2, //注册默认为2（普通用户），需超级管理员修改身份
+			state: false,   //审核通过修改为true，次管理才为可用状态
+			status: 1, //注册默认为2（普通管理，未审核状态），需超级管理员修改身份
 		};
 		await new user(doc).save().then((str) => {
 			if(str){
@@ -83,7 +81,6 @@ class User {
 				data.state = false;
 				data.message = '注册失败'
 			}
-
 		}).catch((err) => {
 			data.err = err
 			data.type = 'FAIL';
@@ -131,12 +128,35 @@ class User {
 			res.send(JSON.stringify(data));
 		})
 	}
+	
+	//============== 超级管理，返回所有角色信息 ==============
+	async returnUser(req, res, next) {
+		 let data = {}
+		 await user.find((err, str)=> {
+            if (!err && str) {
+                data.data = str
+                data.state = true
+                data.message = "成功"
+            } else if (err) {
+                data.err = err
+                data.state = false
+                data.message = "失败"
+            } else if (!str) {
+                data.state = false
+                data.message = "数据为空或失败"
+            }
+         
+        })
+		res.send(JSON.stringify(data))
+	}
+	
+	//============== 超级管理，修改或添加管理角色 ==============
 
-	//============== 用户修改密码 ==============
-
-
-
-	//============== 用户忘记密码找回 ==============
+	//============== 超级管理，修改账户状态 ==============
+	
+	//============== 超级管理，修改账户密码 ==============
+	
+	//============== 超级管理，注销账户 ==============
 
 }
 

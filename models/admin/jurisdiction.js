@@ -41,6 +41,6 @@ jurisdictionSchema.pre('save', function(next) {
 	next();
 });
 
-const jurisdiction_model = mongoose.model('Hongbao', jurisdictionSchema);
+const jurisdiction_model = mongoose.model('jurisdiction', jurisdictionSchema);
 
 export default jurisdiction_model

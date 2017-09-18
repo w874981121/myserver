@@ -9,12 +9,13 @@
  * user_name: 用户账号
  * password: 密码
  * phone: 手机号
- * state: 状态
- * status: 身份(0-超级管理员-唯一账户；1-普通管理员；2-普通用户)
+ * state: 是否可用状态
+ * status: 身份(0-超级管理员-唯一账户；1-普通管理员（区分管理角色，初始创建的管理员无法登陆，需要超级管理员审核分配角色）。)
  * role_name: 管理员的角色名称
  * role_id: 角色_id
- *
- *
+ * createAt: 创建时间
+ * updateAt: 最后依次更新时间
+ * 
  */
 
 'use strict';
