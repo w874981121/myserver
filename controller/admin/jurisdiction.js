@@ -121,7 +121,7 @@ class JurisdictionList {
 	async remove(req, res, next) {
 		await jurisdiction.remove({
 			"jurisdiction_name": req.query.jurisdiction_name
-		}).then(err, str) => {
+		}).then((str) => {
 			let data = {}
 			if(str.length > 0) {
 				data.data = str
@@ -138,7 +138,6 @@ class JurisdictionList {
 		data.message = "失败"
 	});
 	res.send(JSON.stringify(data));
-
 }
 }
 

@@ -41,8 +41,8 @@ class Role {
 		let data = {};
 		if(typeof req.query.jurisdiction !== "Array") return;
 		await role.updata({
-			"jurisdiction": req.query.jurisdiction
-		}).then((str) => {
+			"role_name": req.query.role_name
+		},{"jurisdiction":req.query.jurisdiction}).then((str) => {
 			if(str.length > 0) {
 				data.state = true
 				data.message = "修改成功"
@@ -63,7 +63,7 @@ class Role {
 	async remove(req, res, next) {
 		await jurisdiction.remove({
 			"role_name": req.query.role_name
-		}).then(err, str) => {
+		}).then((str) => {
 			let data = {}
 			if(str.length > 0) {
 				data.data = str
